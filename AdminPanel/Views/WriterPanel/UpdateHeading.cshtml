@@ -1,0 +1,68 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "UpdateHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Güncelleme Sayfası</h2>
+
+@using (@Html.BeginForm("UpdateHeading", "WriterPanel", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Başlık İd")
+        @Html.TextBoxFor(X => X.HeadingID, new { @id = "id", @class = "form-control" })
+        <br />
+        @Html.Label("Başlık Adı")
+        @Html.TextBoxFor(X => X.HeadingName, new { @id = "heading", @class = "form-control" })
+        <br />
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @id = "category", @class = "form-control" })
+        <br />
+        @Html.HiddenFor(x => x.HeadingSatatus, new { @id = "status", @class = "form-control" })
+        @Html.HiddenFor(x => x.HeadingDate, new { @id = "date", @class = "form-control" })
+        @Html.HiddenFor(x => x.WriterID, new { @id = "writer", @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Güncelle</button>
+}
+
+@*<div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Güncelle</h3>
+                </div>
+                <div class="modal-body">
+                    @Html.Label("Başlık İd")
+                    @Html.TextBoxFor(X => X.HeadingID, new { @id = "id", @class = "form-control" })
+                    <br />
+                    @Html.Label("Başlık Adı")
+                    @Html.TextBoxFor(X => X.HeadingName, new { @id = "heading", @class = "form-control" })
+                    <br />
+                    @Html.Label("Kategori")
+                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @id = "category", @class = "form-control" })
+                    <br />
+                    @Html.HiddenFor(x => x.HeadingSatatus, new { @id = "status", @class = "form-control" })
+                    @Html.HiddenFor(x => x.HeadingDate, new { @id = "date", @class = "form-control" })
+                    @Html.HiddenFor(x => x.WriterID, new { @id = "writer", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@*<script>
+
+        function guncelle(id) {
+            var url = "WriterPanel/UpdateHading?id" + id;
+            $("#Modal1").modal();
+            $.ajax({
+                url = url,
+                type: "get",
+                success: function (data) {
+                    var obj = JSON.parse(obj);
+                    $("#id").val(obj.id);
+                }
+            });
+        }
+    </script>*@

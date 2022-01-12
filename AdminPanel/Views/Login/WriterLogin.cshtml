@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-form-20/css/style.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+<body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-form-20/images/bg.jpg);">
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Yazar Giriş Ekranı</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center"></h3>
+                        <form id="form" method="post">
+                            <div class="form-group">
+                                <input id="mail" type="text" class="form-control" name="WriterMail" placeholder="Kullanıcı Adı / Mail" required>
+                            </div>
+                            <div class="form-group">
+                                <input id="password" type="password" class="form-control" name="WriterPassword" placeholder="****" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            @*<div>
+                                <input value=" @ViewBag.d" />
+                            </div>*@
+                            <div class="form-group">
+                                <button id="btn" onclick="Login()" type="button" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">
+                                        Beni Hatırla
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="/Login/Index/" style="color: #fff">Admin Panele Git</a>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <a href="/Login/WriterAdd/">
+                            <button  type="submit" class="form-control btn btn-primary submit px-3">Kayıt Ol</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/jquery.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/popper.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/bootstrap.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/login-form-20/js/main.js"></script>
+
+
+</body>
+</html>
+
+<script>
+    var Login = function () {
+        var data = $("#form").serialize();
+        $.ajax({
+            type: "post",
+            url: "/Login/WriterLogin",
+            data: data,
+            success: function (result) {
+                if (result == true) {
+                    swal.fire({
+                        title: "Başarılı",
+                        text: "Yönlendiriliyorsunuz...",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 3000
+                    }).then(x => {
+                        window.location = "/WriterPanelContent/MyContent";
+                    })
+                }
+                else {
+                    swal.fire({
+                        title: "Başarısız",
+                        text: "Mailiniz veya şifreniz hatalı...",
+                        icon: "error",
+                        showConfirmButton: false,
+                        timer: 3000
+                        //willDelete
+                    }).then(x => {
+                        window.location = "/WriterPanelContent/MyContent";
+                    })
+                }
+            }
+        })
+    }
+</script>
+
+
+
+
+
+
+
+@*<script>
+        $("#btn1").click(function () {
+            swal({
+                text: "Başarılı",
+                icon: "success",
+                button: false,
+
+            });
+        });
+    </script>
+    <script>
+        $("#btn").click(function () {
+            var data = JSON.stringify({
+               mail : $("#mail").val(),
+               password: $("#password").val()
+            });
+            return $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/Login/WriterLogin",
+                data: data,
+                success: function (result) {
+                    if (result == true) {
+                        alert("yes!")
+
+                        window.location.href = "/WriterPanelContent/MyContent";
+
+                    }
+
+                },
+                error: function () {
+                    alert("Error!")
+                }
+            });
+        }
+    </script>*@

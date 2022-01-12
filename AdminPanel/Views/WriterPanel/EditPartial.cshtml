@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.Heading
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Güncelle</h3>
+            </div>
+
+            <div class="modal-body">
+                <form id="myForm">
+                    @Html.Label("Başlık İd")
+                    @Html.TextBoxFor(X => X.HeadingID, new { @id = "id", @class = "form-control" })
+                    <br />
+                    @Html.Label("Başlık Adı")
+                    @Html.TextBoxFor(X => X.HeadingName, new { @id = "heading", @class = "form-control" })
+                    <br />
+                    @Html.Label("Kategori")
+                    @*@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @id = "category", @class = "form-control" })*@
+                    <br />
+                    @Html.HiddenFor(x => x.HeadingSatatus, new { @id = "status", @class = "form-control" })
+                    @Html.HiddenFor(x => x.HeadingDate, new { @id = "date", @class = "form-control" })
+                    @Html.HiddenFor(x => x.WriterID, new { @id = "writer", @class = "form-control" })
+
+                    <button id="btnSubmit" class="btn btn-success">Gönder</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    //$(document).ready(function () {
+
+    //    $("#btnSubmit").click(function () {
+
+
+    //        var myformdata = $("#myForm").serialize();
+
+    //        $.ajax({
+
+    //            type: "POST",
+    //            url: "/WriterPanel/MyHeading",
+    //            data: myformdata,
+    //            success: function () {
+    //                $("#myModal").modal("hide");
+    //                window.location.href = "/WriterPanel/MyHeading";
+
+    //            }
+
+    //        })
+    //    })
+
+    //})
+
+
+</script>

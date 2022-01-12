@@ -1,0 +1,12 @@
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityLayer.dll.config
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityLayer.dll
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityLayer.pdb
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityFramework.dll
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityFramework.xml
+E:\_ONLINE\AdminPanel\EntityLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\_ONLINE\AdminPanel\EntityLayer\obj\Debug\EntityLayer.csprojAssemblyReference.cache
+E:\_ONLINE\AdminPanel\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+E:\_ONLINE\AdminPanel\EntityLayer\obj\Debug\EntityLayer.csproj.CopyComplete
+E:\_ONLINE\AdminPanel\EntityLayer\obj\Debug\EntityLayer.dll
+E:\_ONLINE\AdminPanel\EntityLayer\obj\Debug\EntityLayer.pdb
